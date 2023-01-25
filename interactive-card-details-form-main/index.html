@@ -1,0 +1,184 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <!-- displays site properly based on user's device -->
+
+    <link
+      rel="icon"
+      type="image/png"
+      sizes="32x32"
+      href="./images/favicon-32x32.png"
+    />
+
+    <title>Frontend Mentor | Interactive card details form</title>
+
+    <!-- Feel free to remove these styles or customise in your own stylesheet 👍 -->
+    <style>
+      .attribution {
+        font-size: 11px;
+        text-align: center;
+      }
+      .attribution a {
+        color: hsl(228, 45%, 44%);
+      }
+
+      .header {
+        display: flex;
+        flex-direction: row;
+        gap: 250px;
+      }
+
+      .background-img {
+        height: 100%;
+        position: relative;
+      }
+
+      .card {
+        display: flex;
+        flex-direction: column;
+        gap: 20px;
+        position: absolute;
+        padding-top: 100px;
+        z-index: 2px;
+      }
+
+      .left-img {
+        width: 350px;
+        margin-left: 200px;
+      }
+
+      .right-img {
+        width: 350px;
+        margin-left: 280px;
+      }
+
+      .form {
+        display: flex;
+        flex-direction: column;
+        padding-top: 170px;
+      }
+
+      .form-text {
+        padding-bottom: 5px;
+        font-size: 16px;
+        font-weight: bold;
+      }
+
+      input {
+        width: 300px;
+        outline: none;
+        border-radius: 5px;
+        border: 1px #c0c0c0 solid;
+        height: 35px;
+      }
+
+      .Date-time {
+        display: flex;
+        flex-direction: column;
+      }
+      .month {
+        width: 150px;
+      }
+
+      .cvc {
+        width: 150px;
+        display: flex;
+        flex-direction: column;
+      }
+
+      .flex {
+        display: flex;
+        gap: 50px;
+        flex-direction: row;
+        padding-bottom: 50px;
+      }
+
+      button {
+        background-color: #301934;
+        border: none;
+        font-size: 16px;
+        color: white;
+        height: 40px;
+        border-radius: 12px;
+        width: 300px;
+        cursor: pointer;
+      }
+
+      .error {
+        color: red;
+        display: none;
+      }
+
+      .success {
+        color: green;
+        display: flex;
+        justify-content: center;
+        display: none;
+      }
+    </style>
+  </head>
+  <body>
+    <section class="header">
+      <img class="background-img" src="./images/bg-main-desktop.png" alt="" />
+      <div class="card">
+        <img class="left-img" src="./images/bg-card-front.png" alt="" />
+        <img class="right-img" src="./images/bg-card-back.png" alt="" />
+      </div>
+      <form class="form">
+        <h3 class="success">Submitted!</h3>
+        <label class="form-text">Cardholder Name</label>
+        <input
+          class="input"
+          type="text"
+          placeholder="e.g Jane Appleased"
+          id="text"
+        />
+        <span class="error">can't be blank!</span>
+        <br />
+        <label class="form-text">Card Number</label>
+        <input
+          type="Number"
+          class="input"
+          placeholder="e.g 123 4567 891000"
+          id="number"
+        />
+        <span class="error">can't be blank!</span>
+        <br />
+        <div class="flex">
+          <div class="Date-time">
+            <label class="form-text">Exp. Date(MM/YY)</label>
+            <input
+              class="month input"
+              type="Month"
+              placeholder="MM"
+              id="month"
+            />
+            <span class="error">can't be blank!</span>
+          </div>
+          <span>
+            <label for="">CVC</label>
+            <input
+              class="cvc input"
+              type="number"
+              placeholder="e.g 123"
+              id="cvc"
+            />
+            <span class="error">can't be blank!</span>
+          </span>
+        </div>
+        <button id="confirm">Confirm</button>
+      </form>
+    </section>
+
+    <div class="attribution">
+      Challenge by
+      <a href="https://www.frontendmentor.io?ref=challenge" target="_blank"
+        >Frontend Mentor</a
+      >. Coded by <a href="#">Your Name Here</a>.
+    </div>
+
+    <script src="app.js"></script>
+  </body>
+</html>
