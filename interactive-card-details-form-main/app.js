@@ -1,45 +1,28 @@
-// UI Elements
-const textInput = document.querySelector("#text");
-const textNumber = document.querySelector("#number");
-const textMonth = document.querySelector("#month");
-const textCvc = document.querySelector("#cvc");
-const confirmBtn = document.querySelector("#confirm");
-const errorMsg = document.querySelector(".error");
-const sucMsg = document.querySelector(".success");
-const input = document.querySelectorAll(".input");
+document.getElementById("confirm").addEventListener("click", function (event) {
+  event.preventDefault(); // Prevent form submission
 
-// load all Events listeneres
-loadEventListeners();
+  var inputs = document.getElementsByClassName("input");
+  var errorMsg = document.getElementsByClassName("error");
+  var successMsg = document.getElementsByClassName("success")[0];
 
-function loadEventListeners() {
-  // submit event
-  confirmBtn.addEventListener("click", submit);
-}
+  // Clear all error messages
+  for (var i = 0; i < errorMsg.length; i++) {
+    errorMsg[i].style.display = "none";
+  }
 
-function submit(e) {
-  // textInput
-  if (
-    textInput.value === "" &&
-    textCvc.value === "" &&
-    textMonth.value === "" &&
-    textNumber.value === ""
-  ) {
-    errorMsg.style.display = "block";
-    textInput.style.border = "1px #FF0000 solid";
-    textCvc.style.border = "1px #FF0000 solid";
-    textMonth.style.border = "1px #FF0000 solid";
-    textNumber.style.border = "1px #FF0000 solid";
+  var isError = false;
+
+  // Check if any input is empty
+  for (var i = 0; i < inputs.length; i++) {
+    if (inputs[i].value.trim() === "") {
+      errorMsg[i].style.display = "block";
+      isError = true;
+    }
+  }
+
+  if (isError) {
+    successMsg.style.display = "none";
   } else {
-    errorMsg.style.display = "none";
-    textInput.style.border = " 1px #c0c0c0 solid";
-    textCvc.style.border = " 1px #c0c0c0 solid";
-    textNumber.style.border = " 1px #c0c0c0 solid";
-    textMonth.style.border = " 1px #c0c0c0 solid";
+    successMsg.style.display = "block";
   }
-
-  if (confirmBtn) {
-    alert("submitted");
-  }
-
-  e.preventDefault();
-}
+});
